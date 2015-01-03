@@ -4,7 +4,7 @@ title: trine
 layout: default
 ---
 
-# trine: translating english to DML since 2012
+# trine
 
 [github.com/darvid/trine](http://github.com/darvid/trine)
 

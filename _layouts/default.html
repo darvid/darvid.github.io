@@ -5,16 +5,29 @@ nav:
     url: /
   projects:
   - caption: auryea
+    language: shell
     url: /projects/auryea/
+  - caption: hydrogen
+    language: python
+    url: /projects/hydrogen/
+  - caption: realmswitch
+    language: au3
+    url: /projects/realmswitch/
   - caption: trine
+    language: python
     url: /projects/trine/
+  - caption: tudor-do
+    language: cpp
+    url: /projects/tudor-do/
+  - caption: tudor-volumed
+    language: cpp
+    url: /projects/tudor-volumed/
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
   <title>{% if page.title %}{{ page.title }} &mdash; David Gidwani{% else %}David Gidwani{% endif %}</title>
 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -48,7 +61,14 @@ nav:
                 <li class="pure-menu-heading">{{ category[0] }}</li>
               {% endif %}
               {% for link in category[1] %}
-                <li {% if url == link.url %}class="pure-menu-selected"{% endif %}>
+                {% assign link_class = '' %}
+                {% if url == link.url %}
+                  {% assign link_class = 'pure-menu-selected' %}
+                {% endif %}
+                {% if link.language %}
+                  {% capture link_class %}{{ link_class }} lang-{{ link.language }}{% endcapture %}
+                {% endif %}
+                <li class="{{ link_class }}">
                   <a href="{{ link.url }}" title="{{ link.title }}">{{ link.caption }}</a>
                 </li>
               {% endfor %}
