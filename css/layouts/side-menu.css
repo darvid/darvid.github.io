@@ -29,15 +29,15 @@ This is the parent `<div>` that contains the menu and the content area.
 }
     #layout.active {
         position: relative;
-        left: 150px;
+        left: 200px;
     }
         #layout.active #menu {
-            left: 150px;
-            width: 150px;
+            left: 200px;
+            width: 200px;
         }
 
         #layout.active .menu-link {
-            left: 150px;
+            left: 200px;
         }
 /*
 The content `<div>` is where all your content goes.
