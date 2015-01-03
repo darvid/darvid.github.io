@@ -1,0 +1,12 @@
+gems: [bourbon]
+markdown: redcarpet
+redcarpet:
+  extensions:
+  - autolink
+  - fenced_code_blocks
+  - no_intra_emphasis
+  - smart
+  - tables
+  - with_toc_data
+sass:
+  style: :compressed

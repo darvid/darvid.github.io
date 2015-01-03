@@ -1,0 +1,69 @@
+---
+nav:
+  main:
+  - caption: Home
+    url: /
+  projects:
+  - caption: auryea
+    url: /projects/auryea/
+  - caption: trine
+    url: /projects/trine/
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+  <title>{% if page.title %}{{ page.title }} &mdash; David Gidwani{% else %}David Gidwani{% endif %}</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/layouts/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/default.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+</head>
+<body>
+  <div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+      <!-- Hamburger icon -->
+      <span></span>
+    </a>
+
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+          <a class="pure-menu-heading" href="#">david gidwani</a>
+          <ul>
+            {% assign url = page.url|remove:'index.html' %}
+            {% for category in page.nav %}
+              {% assign category_lower = category[0]|downcase %}
+              {% if category_lower != "main" %}
+                <li class="pure-menu-heading">{{ category[0] }}</li>
+              {% endif %}
+              {% for link in category[1] %}
+                <li {% if url == link.url %}class="pure-menu-selected"{% endif %}>
+                  <a href="{{ link.url }}" title="{{ link.title }}">{{ link.caption }}</a>
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+
+      <div id="main">
+        <div class="content">
+          {{ content }}
+        </div>
+      </div>
+  </div>
+
+  <script src="/js/ui.js"></script>
+</body>
+</html>

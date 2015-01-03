@@ -1,0 +1,74 @@
+---
+---
+
+@import 'bourbon';
+
+$body-bg-color: #eee;
+$selected-bg-color: #322f4c;
+$menu-heading-bg-color: #222;
+
+@function contrast-lightness($color, $threshold: 50, $pct: 50%) {
+  @if (lightness($color) > $threshold) {
+    @return darken($color, $pct);
+  } @else {
+    @return lighten($color, $pct);
+  }
+}
+
+body {
+  background: $body-bg-color;
+  font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px dashed $selected-bg-color;
+}
+
+em, strong {
+  color: $selected-bg-color;
+}
+
+.header {
+  h2 {
+    color: #777;
+  }
+}
+
+.highlight {
+  padding: 0 5px;
+  font-size: 0.9em;
+}
+
+#menu {
+  background-image: url('/img/bg.png');
+
+  .pure-menu-heading {
+    background: $menu-heading-bg-color;
+    color: contrast-lightness($menu-heading-bg-color);
+    border-bottom-color: contrast-lightness($menu-heading-bg-color, 50, 10%);
+  }
+
+  .pure-menu-selected {
+    background: $selected-bg-color;
+
+    a {
+      color: contrast-lightness($selected-bg-color, $pct: 40%);
+
+      &:hover {
+        background: $selected-bg-color !important;
+      }
+    }
+  }
+}
+
+#post {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .meta {
+    color: contrast-lightness($body-bg-color, 75, 20%);
+  }
+}
