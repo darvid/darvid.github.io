@@ -1,4 +1,3 @@
-gems: [bourbon]
 markdown: redcarpet
 redcarpet:
   extensions:
