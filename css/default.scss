@@ -59,6 +59,41 @@ em, strong {
 #menu {
   background-image: url('/img/bg.png');
 
+  a {
+    position: relative;
+
+    &:hover {
+      &:after {
+        font-size: 0.8em;
+        background: #111;
+        background: rgba(0,0,0,.8);
+        border-radius: .5em;
+        bottom: .35em;
+        color: #fff;
+        content: attr(title);
+        display: block;
+        right: 1em;
+        padding: .3em 1em;
+        position: absolute;
+        text-shadow: 0 1px 0 #000;
+        white-space: nowrap;
+        z-index: 98;
+      }
+      &:before {
+        border: solid;
+        border-color: #111 transparent;
+        border-color: rgba(0,0,0,.8) transparent;
+        border-width: .4em .4em 0 .4em;
+        bottom: 0;
+        content: "";
+        display: block;
+        right: 2em;
+        position: absolute;
+        z-index: 99;
+      }
+    }
+  }
+
   .pure-menu-heading {
     background: $menu-heading-bg-color;
     color: contrast-lightness($menu-heading-bg-color);
