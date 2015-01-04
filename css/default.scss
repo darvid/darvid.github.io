@@ -59,7 +59,7 @@ em, strong {
 #menu {
   background-image: url('/img/bg.png');
 
-  a {
+  a.tooltip {
     position: relative;
 
     &:hover {

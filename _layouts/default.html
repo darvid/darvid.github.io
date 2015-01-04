@@ -69,7 +69,7 @@ nav:
                   {% capture link_class %}{{ link_class }} lang-{{ link.language }}{% endcapture %}
                 {% endif %}
                 <li class="{{ link_class }}">
-                  <a href="{{ link.url }}" title="{{ link.language }}">{{ link.caption }}</a>
+                  <a{% if link.language %} class="tooltip"{% endif %} href="{{ link.url }}" title="{{ link.language }}">{{ link.caption }}</a>
                 </li>
               {% endfor %}
             {% endfor %}
